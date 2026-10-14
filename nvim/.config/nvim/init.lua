@@ -124,6 +124,7 @@ vim.opt.tabstop = 4 -- Number of spaces tabs count for
 vim.opt.shiftwidth = 4 -- Size of an indent
 vim.opt.softtabstop = 4 -- Number of spaces inserted for tab key
 vim.opt.expandtab = true -- Convert tabs to spaces
+vim.opt.termguicolors = true
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
@@ -257,6 +258,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Remove the underline from the sticky context block
 vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { underline = false })
 vim.api.nvim_set_hl(0, 'TreesitterContextLineNumberBottom', { underline = false })
+vim.api.nvim_set_hl(0, 'DiagnosticError', { fg = '#cc241d', bold = true }) -- Gruvbox red
+vim.api.nvim_set_hl(0, 'DiagnosticWarn', { fg = '#d79921', bold = true }) -- Gruvbox yellow
+vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = '#458588' }) -- Gruvbox blue
+vim.api.nvim_set_hl(0, 'DiagnosticHint', { fg = '#689d6a' }) -- Gruvbox aqua
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -732,7 +737,8 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
+        ruff = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
