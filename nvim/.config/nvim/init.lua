@@ -504,6 +504,9 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+      vim.keymap.set('n', 'K', function()
+        vim.lsp.buf.hover({ border = 'rounded' })
+      end, { desc = 'LSP show hover details', silent = true })
 
 			-- Slightly advanced example of overriding default behavior and theme
 			vim.keymap.set("n", "<leader>/", function()
@@ -979,35 +982,46 @@ require("lazy").setup({
 		},
 	},
 
-	{ -- You can easily change to a different colorscheme.
-		-- Change the name of the colorscheme plugin below, and then
-		-- change the command in the config to whatever the name of that colorscheme is.
-		--
-		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-		"sainnhe/gruvbox-material",
-		priority = 1000, -- Make sure to load this before all the other start plugins.
-		config = function()
-			---@diagnostic disable-next-line: missing-fields
-			vim.g.gruvbox_material_style = "material"
-			vim.g.gruvbox_material_background = "soft"
-			vim.g.gruvbox_material_disable_italic_comment = 1
-			vim.g.gruvbox_material_better_performance = 1
-			-- Load the colorscheme here.
-			-- Like many other themes, this one has different styles, and you could load
-			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			--
-			vim.g.gruvbox_material_transparent_background = 1
-			vim.cmd.colorscheme("gruvbox-material")
+	-- { -- You can easily change to a different colorscheme.
+	-- 	-- Change the name of the colorscheme plugin below, and then
+	-- 	-- change the command in the config to whatever the name of that colorscheme is.
+	-- 	--
+	-- 	-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+	-- 	"sainnhe/gruvbox-material",
+	-- 	priority = 1000, -- Make sure to load this before all the other start plugins.
+	-- 	config = function()
+	-- 		---@diagnostic disable-next-line: missing-fields
+	-- 		vim.g.gruvbox_material_style = "material"
+	-- 		vim.g.gruvbox_material_background = "soft"
+	-- 		vim.g.gruvbox_material_disable_italic_comment = 1
+	-- 		vim.g.gruvbox_material_better_performance = 1
+	-- 		-- Load the colorscheme here.
+	-- 		-- Like many other themes, this one has different styles, and you could load
+	-- 		-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+	-- 		--
+	-- 		vim.g.gruvbox_material_transparent_background = 1
+	-- 		vim.cmd.colorscheme("gruvbox-material")
+	--
+	-- 		vim.cmd([[
+	--        highlight Normal guibg=NONE ctermbg=NONE
+	--        highlight NonText guibg=NONE ctermbg=NONE
+	--        highlight SignColumn guibg=NONE ctermbg=NONE
+	--        highlight NormalFloat guibg=NONE ctermbg=NONE
+	--        highlight FloatBorder guibg=NONE ctermbg=NONE
+	--      ]])
+	-- 	end,
+	-- },
+  --
+  {
+    'AlexvZyl/nordic.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require('nordic').load({})
 
-			vim.cmd([[
-        highlight Normal guibg=NONE ctermbg=NONE
-        highlight NonText guibg=NONE ctermbg=NONE
-        highlight SignColumn guibg=NONE ctermbg=NONE
-        highlight NormalFloat guibg=NONE ctermbg=NONE
-        highlight FloatBorder guibg=NONE ctermbg=NONE
-      ]])
-		end,
-	},
+        vim.api.nvim_set_hl(0, 'Visual', { bg = '#3b4252', fg = '#e5e9f0' })
+    end
+  },
 
 	-- Highlight todo, notes, etc in comments
 	{
