@@ -13,6 +13,12 @@ return {
       'nvim-lua/plenary.nvim', -- required
       'sindrets/diffview.nvim', -- optional - for diff visualization
       'nvim-telescope/telescope.nvim', -- optional
+      'sindrets/diffview.nvim',
+    },
+    opts = {
+      integrations = {
+        diffview = true,
+      }
     },
     config = true,
   },
