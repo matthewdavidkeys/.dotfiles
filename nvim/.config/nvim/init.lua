@@ -1019,7 +1019,7 @@ require("lazy").setup({
     config = function()
         require('nordic').load({})
 
-        vim.api.nvim_set_hl(0, 'Visual', { bg = '#3b4252', fg = '#e5e9f0' })
+        vim.api.nvim_set_hl(0, 'Visual', { bg = '#3b4252' })
     end
   },
 
