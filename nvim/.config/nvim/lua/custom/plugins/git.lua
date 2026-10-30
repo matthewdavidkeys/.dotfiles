@@ -1,11 +1,11 @@
 return {
   -- Visual sign indicators in the gutter (added, modified, deleted)
-  {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end,
-  },
+  -- {
+  --   'lewis6991/gitsigns.nvim',
+  --   config = function()
+  --     require('gitsigns').setup()
+  --   end,
+  -- },
   -- VS Code style Git control center panel
   {
     'NeogitOrg/neogit',

@@ -73,3 +73,5 @@ fi
 # --- PLUGINS REQUIRED TO RUN AT THE ABSOLUTE BOTTOM ---
 # Syntax highlighting must always be loaded last so it applies to all features above it
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Added by Kiro CLI
+case ":$PATH:" in *":$HOME/.local/bin:"*) ;; *) export PATH="${PATH:+$PATH:}$HOME/.local/bin" ;; esac
