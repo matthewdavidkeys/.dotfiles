@@ -1,4 +1,13 @@
 return {
+	{
+	    "nvim-tree/nvim-web-devicons",
+	    lazy = true,
+	    opts = {
+	      default = true,
+	    },
+		tag = "nerd-v2-compat",
+	},
+	{
 	"nvim-neo-tree/neo-tree.nvim",
 	version = "*",
 	dependencies = {
@@ -34,5 +43,6 @@ return {
 				},
 			},
 		},
+	},
 	},
 }

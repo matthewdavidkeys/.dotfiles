@@ -919,9 +919,9 @@ require("lazy").setup({
 				--
 				-- See :h blink-cmp-config-keymap for defining your own keymap
 				preset = "default",
-				["<C-CR>"] = { "select_and_accept", "fallback" }, -- Ctrl+Enter to confirm
-				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-				["<S-Tab>"] = { "select_prev", "snippet_forward", "fallback" },
+				["<Tab>"] = { "select_and_accept", "fallback" }, -- Ctrl+Enter to confirm
+				-- ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+				-- ["<S-Tab>"] = { "select_prev", "snippet_forward", "fallback" },
 
 				-- Navigate down with Ctrl+j (falls back to tmux/neovim if menu is closed)
 				["<C-j>"] = {
